@@ -40,13 +40,8 @@ input.addEventListener("keypress", (event) => {
   if (event.key !== "Enter") {
     return;
   }
-  guesses.push(input.value);
-  console.log(guesses.join(""));
-  updateWordP();
-  if (
-    !word.includes(input.value) &&
-    !wrongGuesses.innerHTML.includes(input.value)
-  ) {
+
+  if (!word.includes(input.value) && !guesses.includes(input.value)) {
     wrongGuesses.innerHTML += input.value + " ";
     if (lives > 0) {
       lives--;
@@ -59,6 +54,10 @@ input.addEventListener("keypress", (event) => {
 
     updateLivesCounter();
   }
+
+  guesses.push(input.value);
+  console.log(guesses.join(""));
+  updateWordP();
 
   if (!wordP.innerHTML.includes("_") && lives > 0) {
     document.body.style.backgroundColor = "seagreen";
