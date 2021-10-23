@@ -4,6 +4,8 @@ let guesses = [];
 
 let lives = 10;
 
+let wrongGuessCount = 0;
+
 updateLivesCounter();
 
 function updateWordP() {
@@ -45,6 +47,8 @@ input.addEventListener("keypress", (event) => {
     wrongGuesses.innerHTML += input.value + " ";
     if (lives > 0) {
       lives--;
+      wrongGuessCount++;
+      gallow.src = "hangman-figure/" + wrongGuessCount + ".svg";
     }
     if (lives === 0) {
       document.body.style.backgroundColor = "crimson";
