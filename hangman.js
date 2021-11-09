@@ -52,6 +52,7 @@ input.addEventListener("keypress", (event) => {
     }
     if (lives === 0) {
       document.body.style.backgroundColor = "crimson";
+      input.disabled = true;
       wordP.innerHTML = [...word].join(" ");
       playagain.style.display = "block";
     }
@@ -70,6 +71,8 @@ input.addEventListener("keypress", (event) => {
     let defaults = {
       origin: { y: 0.7 },
     };
+
+    input.disabled = true;
 
     function fire(particleRatio, opts) {
       confetti(
